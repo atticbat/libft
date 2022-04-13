@@ -6,7 +6,7 @@
 /*   By: khatlas <khatlas@student.42heilbronn.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 01:38:25 by khatlas           #+#    #+#             */
-/*   Updated: 2022/04/13 19:00:07 by khatlas          ###   ########.fr       */
+/*   Updated: 2022/04/13 21:17:45 by khatlas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*buffer;
 
-	if (lst == NULL || new == NULL)
+	if (new == NULL)
 		;
 	else if (*lst)
 	{
@@ -24,9 +24,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		buffer->next = new;
 	}
 	else
-	{
 		*lst = new;
-	}
 }
 
 //#include <stdio.h>

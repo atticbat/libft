@@ -6,7 +6,7 @@
 /*   By: khatlas <khatlas@student.42heilbronn.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 00:47:46 by khatlas           #+#    #+#             */
-/*   Updated: 2022/04/12 01:15:38 by khatlas          ###   ########.fr       */
+/*   Updated: 2022/04/13 20:16:08 by khatlas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ t_list	*ft_lstnew(void *content)
 	t_list	*result;
 
 	result = malloc(sizeof(t_list));
+	if (!result)
+		return (NULL);
 	result->content = content;
 	result->next = NULL;
 	return (result);

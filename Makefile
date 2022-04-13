@@ -6,7 +6,7 @@
 #    By: khatlas <khatlas@student.42heilbronn.fr>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/26 14:12:23 by khatlas           #+#    #+#              #
-#    Updated: 2022/04/13 18:09:56 by khatlas          ###   ########.fr        #
+#    Updated: 2022/04/13 22:31:42 by khatlas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ clean:
 	@/bin/rm -f $(OBJECTS)
 
 fclean: clean
-	@/bin/rm -f $(NAME)
+	@/bin/rm -f $(NAME) $(BOBJECTS)
 
 re: fclean all
 

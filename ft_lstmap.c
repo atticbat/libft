@@ -6,7 +6,7 @@
 /*   By: khatlas <khatlas@student.42heilbronn.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 20:54:43 by khatlas           #+#    #+#             */
-/*   Updated: 2022/04/13 22:23:54 by khatlas          ###   ########.fr       */
+/*   Updated: 2022/04/13 23:26:14 by khatlas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,20 @@
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*head;
-	t_list	*buffer1;
+	t_list	*buffer;
 
 	if (lst == NULL || f == NULL || del == NULL)
 		return (NULL);
 	head = NULL;
 	while (lst)
 	{
-		buffer1 = ft_lstnew(f(lst->content));
-		if (!buffer1)
+		buffer = ft_lstnew(f(lst->content));
+		if (!buffer)
 		{
-			ft_lstclear(&buffer1, del);
+			ft_lstclear(&head, del);
 			return (NULL);
 		}
-		ft_lstadd_back(&head, buffer1);
+		ft_lstadd_back(&head, buffer);
 		lst = lst->next;
 	}
 	return (head);

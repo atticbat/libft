@@ -6,7 +6,7 @@
 /*   By: khatlas <khatlas@student.42heilbronn.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 20:23:16 by khatlas           #+#    #+#             */
-/*   Updated: 2022/04/12 20:54:08 by khatlas          ###   ########.fr       */
+/*   Updated: 2022/04/14 21:25:21 by khatlas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 	t_list	*buffer;
 
 	buffer = lst;
-	if (lst != NULL || f != NULL)
+	if (lst != NULL)
 	{
 		while (lst != NULL)
 		{

@@ -6,7 +6,7 @@
 /*   By: khatlas <khatlas@student.42heilbronn.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 20:15:37 by khatlas           #+#    #+#             */
-/*   Updated: 2022/04/13 23:29:18 by khatlas          ###   ########.fr       */
+/*   Updated: 2022/04/14 19:14:50 by khatlas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	len;
 	unsigned int	i;
 
-	if (!s || !f)
+	if (!s)
 		return (NULL);
 	len = (unsigned int) ft_strlen(s);
 	ptr = (char *) malloc ((len + 1) * sizeof(char));

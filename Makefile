@@ -3,44 +3,47 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: khatlas <khatlas@student.42heilbronn.fr>   +#+  +:+       +#+         #
+#    By: khatlas < khatlas@student.42heilbronn.d    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/26 14:12:23 by khatlas           #+#    #+#              #
-#    Updated: 2022/04/14 23:44:10 by khatlas          ###   ########.fr        #
+#    Updated: 2022/08/10 04:36:55 by khatlas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # -*- MakeFile -*-
 
-NAME = libft.a
-OBJECTS = ft_i*.o ft_s*.o ft_m*.o ft_b*.o ft_t*.o ft_a*.o ft_c*.o ft_p*.o
-FUNCTS = ft_i*.c ft_s*.c ft_m*.c ft_b*.c ft_t*.c ft_a*.c ft_c*.c ft_p*.c
-BOBJECTS = ft_l*.o
-BFUNCTS = ft_l*.c
+NAME 	= libft.a
+FUNCTS 	= ft_atoi.c ft_itoa.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
+		ft_isascii.c ft_isdigit.c ft_isprint.c ft_lstadd_back.c \
+		ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c ft_lstiter.c \
+		ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c ft_memchr.c \
+		ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft_putchar_fd.c \
+		ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_split.c ft_strchr.c \
+		ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c \
+		ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c \
+		ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c
+OBJS	= $(addprefix $(OBJ_PATH)/,$(FUNCTS:.c=.o))
+OBJ_PATH =	obj
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): comp
-	@ar -rcs $@ $(OBJECTS)
+$(OBJ_PATH) :
+	@mkdir $(OBJ_PATH)
 
-comp:
-	@$(CC) $(CFLAGS) -c $(FUNCTS) 
+$(OBJ_PATH)/%.o: %.c
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(NAME): $(OBJ_PATH) $(OBJS)
+	@ar -rcs $@ $(OBJS)
 
 clean:
-	@/bin/rm -f $(OBJECTS)
+	@/bin/rm -rf $(OBJ_PATH)
 
 fclean: clean
-	@/bin/rm -f $(NAME) $(BOBJECTS)
+	@/bin/rm -f $(NAME)
 
 re: fclean all
-
-bonus: $(NAME) bcomp
-	@ar -rcs $(NAME) $(BOBJECTS)
-
-bcomp:
-	@$(CC) $(CFLAGS) -c $(BFUNCTS)
 	
-.PHONY: all clean fclean re bonus
-
+.PHONY: all clean fclean re comp
